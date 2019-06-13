@@ -11,14 +11,7 @@ public class Util {
 
 
 	
-	public static BigInteger[] toBigIntArray(String s) {
-		String[] nums = s.split("\\s");
-		return IntStream.range(0, nums.length)
-				.boxed()
-				.map(index -> new BigInteger(nums[index]))
-				.toArray(size -> new BigInteger[size]);
-		
-	}
+
 	
 
 	
@@ -63,11 +56,20 @@ public class Util {
 	}
 	
 	public static long[] toLongArray(String s) {
-		return Stream.of(s.split("\\s")).mapToLong(Integer::parseInt).toArray();
+		return Stream.of(s.split("\\s")).mapToLong(Long::parseLong).toArray();
     }
 	
 	public static BigInteger[] readBigInts(BufferedReader reader) throws IOException {
 		return toBigIntArray(reader.readLine());
+	}
+	
+	public static BigInteger[] toBigIntArray(String s) {
+		String[] nums = s.split("\\s");
+		return IntStream.range(0, nums.length)
+				.boxed()
+				.map(index -> new BigInteger(nums[index]))
+				.toArray(size -> new BigInteger[size]);
+		
 	}
 	
 	public static char[] readChars(BufferedReader reader) throws IOException {

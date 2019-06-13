@@ -34,20 +34,6 @@ public class AllocateBooks {
 		
     }
 	
-	private long getMinSumOfNoOfStudentsBookPages(ArrayList<Integer> books, int dequeSize) {
-		int champMin = 0;
-		for(int i = 0; i < dequeSize; i++) {
-			champMin += books.get(i);
-		}
-		int currentSum = champMin;
-		for(int i = dequeSize; i < books.size(); i++) {
-			currentSum -= books.get(i - dequeSize);
-			currentSum += books.get(i);
-			champMin = Math.min(champMin, currentSum);
-		}
-		return champMin;
-	}
-
 	private boolean isMaxNumbersOfPagesPerStudentValid(long maxNoOfPagesAStudentCanRead, ArrayList<Integer> books, int noOfStudents) {
 		int book = 0;
 		int student = 0;
